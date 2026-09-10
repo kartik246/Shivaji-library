@@ -19,9 +19,12 @@ import {
 } from 'lucide-react';
 
 const PLAN_RATES = {
-  monthly: 800,
-  quarterly: 2200,
-  yearly: 8000,
+  half_day: 800,
+  full_day: 1200,
+  full_day_locker: 1800,
+  monthly: 1200,
+  quarterly: 3400,
+  yearly: 13000,
 };
 
 const AdminMembers = () => {
@@ -440,9 +443,12 @@ const AdminMembers = () => {
                   }}
                   className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-medium text-slate-800"
                 >
-                  <option value="monthly">Monthly Pass (30 Days - ₹800)</option>
-                  <option value="quarterly">Quarterly Pass (90 Days - ₹2,200)</option>
-                  <option value="yearly">Annual Pass (365 Days - ₹8,000)</option>
+                  <option value="half_day">Half Day Reserved (30 Days - ₹800)</option>
+                  <option value="full_day">Full Day Reserved (30 Days - ₹1,200)</option>
+                  <option value="full_day_locker">Full Day + Locker (30 Days - ₹1,800)</option>
+                  <option value="monthly">Monthly Pass (Legacy - ₹1,200)</option>
+                  <option value="quarterly">Quarterly Pass (Legacy - ₹3,400)</option>
+                  <option value="yearly">Annual Pass (Legacy - ₹13,000)</option>
                 </select>
               </div>
 

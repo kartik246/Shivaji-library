@@ -1,7 +1,7 @@
 export const PLAN_CONFIG = {
   half_day: {
     id: "half_day",
-    name: "Half Day Reserve Seat",
+    name: "Half Day Reserved",
     durationDays: 30,
     price: 800,
     subtitle: "Perfect for focused half-day sessions",
@@ -9,16 +9,16 @@ export const PLAN_CONFIG = {
   },
   full_day: {
     id: "full_day",
-    name: "Full Day Reserve Seat (Monthly)",
+    name: "Full Day Reserved",
     durationDays: 30,
-    price: 1500,
+    price: 1200,
     subtitle: "Study all day, every day",
     description: "100% reserved desk with numbered cubicle. Full day uninterrupted access.",
     popular: true,
   },
   full_day_locker: {
     id: "full_day_locker",
-    name: "Full Day Reserve Seat with Locker",
+    name: "Full Day Reserved + Locker",
     durationDays: 30,
     price: 1800,
     subtitle: "Your seat. Your things. Always secure",
@@ -27,27 +27,27 @@ export const PLAN_CONFIG = {
   // Backward compatibility
   monthly: {
     id: "monthly",
-    name: "Full Day Reserve Seat",
+    name: "Full Day Reserved",
     durationDays: 30,
-    price: 1500,
+    price: 1200,
     subtitle: "Study all day, every day",
     description: "Full day uninterrupted study desk for 30 days.",
   },
   quarterly: {
     id: "quarterly",
-    name: "Full Day Seat with Locker",
+    name: "Full Day Reserved (Quarterly)",
     durationDays: 90,
-    price: 4500,
-    subtitle: "3-Month Pass with Locker",
-    description: "Full access for 3 months with personal locker.",
+    price: 3400,
+    subtitle: "3-Month Pass",
+    description: "Full access for 3 months.",
   },
   yearly: {
     id: "yearly",
-    name: "Annual Reserve Seat with Locker",
+    name: "Annual Reserved Pass",
     durationDays: 365,
-    price: 16000,
-    subtitle: "Annual Full Access with Locker",
-    description: "Complete 365 days reserved study cubicle and locker.",
+    price: 13000,
+    subtitle: "Annual Full Access",
+    description: "Complete 365 days reserved study cubicle.",
   },
 };
 
@@ -56,7 +56,7 @@ export const getPlanDurationDays = (plan) => {
 };
 
 export const getPlanPrice = (plan) => {
-  return PLAN_CONFIG[plan]?.price || 1500;
+  return PLAN_CONFIG[plan]?.price || 1200;
 };
 
 export const calculateRenewalPeriod = (currentEndDate, plan) => {

@@ -18,9 +18,10 @@ import {
 } from 'lucide-react';
 
 const PLAN_RATES = {
-  monthly: { name: 'Monthly Pass', price: 800, days: 30 },
-  quarterly: { name: 'Quarterly Pass', price: 2200, days: 90 },
-  yearly: { name: 'Annual Pass', price: 8000, days: 365 },
+  half_day: { name: 'Half Day Reserved', price: 800, days: 30 },
+  full_day: { name: 'Full Day Reserved', price: 1200, days: 30 },
+  full_day_locker: { name: 'Full Day + Locker', price: 1800, days: 30 },
+  monthly: { name: 'Full Day Reserved', price: 1200, days: 30 },
 };
 
 const MemberDashboard = () => {
@@ -396,7 +397,7 @@ const MemberDashboard = () => {
                   Select Pass Duration:
                 </label>
                 <div className="grid grid-cols-3 gap-2 text-xs">
-                  {Object.entries(PLAN_RATES).map(([key, item]) => (
+                  {Object.entries(PLAN_RATES).filter(([k]) => ['half_day', 'full_day', 'full_day_locker'].includes(k)).map(([key, item]) => (
                     <button
                       key={key}
                       type="button"

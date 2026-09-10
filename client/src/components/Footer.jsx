@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-black border border-amber-500/40 p-2 flex items-center justify-center">
-                <img src="/logo.svg" alt="Shivaji Library" className="w-full h-full object-contain" />
+                <img src="/photos/logo.png" alt="Shivaji Library" className="w-full h-full object-contain" />
               </div>
               <div>
                 <span className="font-extrabold text-lg text-white tracking-tight block">SHIVAJI LIBRARY</span>
@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="p-2.5 rounded-xl bg-neutral-900 border border-amber-500/40">
                 <div className="flex justify-between font-bold">
                   <span>Full Day Reserve Seat</span>
-                  <span className="text-amber-400">₹1,500/mo</span>
+                  <span className="text-amber-400">₹1,200/mo</span>
                 </div>
                 <p className="text-[11px] text-slate-400 mt-0.5">Study all day, every day</p>
               </div>

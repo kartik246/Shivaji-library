@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  Zap,
   Coffee,
   ExternalLink,
   Phone,
@@ -22,24 +21,24 @@ import {
 
 const GALLERY_PHOTOS = [
   {
-    url: '/photos/hall1.jpeg',
-    title: 'Main 80-Seater Reading Hall',
-    desc: 'Spacious, air-conditioned hall with numbered personal study cubicles and ambient lighting.',
+    url: '/photos/1.jpeg',
+    title: '80-Seater Air-Conditioned Study Hall',
+    desc: 'Spacious study hall with numbered personal cubicles, high-back rolling chairs, and LED lighting.',
   },
   {
-    url: '/photos/hall2.jpeg',
-    title: 'Quiet Study Aisle & Numbered Desks',
-    desc: 'Wide corridors, polished marble floors, and comfortable high-back revolving chairs.',
+    url: '/photos/2.jpeg',
+    title: 'Center Aisle & Study Cubicles',
+    desc: 'Polished marble flooring, wide corridors, and strict pin-drop silence for maximum focus.',
   },
   {
-    url: '/photos/hall3.jpeg',
-    title: 'Individual Cubicles with Private Lockers',
-    desc: 'Numbered desks 12, 13, 14, 15, 16... with dedicated key lockers right above your seat.',
+    url: '/photos/3.jpeg',
+    title: 'Individual Desks with Overhead Key Lockers',
+    desc: 'Numbered desks with private assignable key-locked wooden lockers right above your seat.',
   },
   {
-    url: '/photos/amenities.jpeg',
-    title: 'Blue Star RO Water & Hot Tea/Coffee Station',
-    desc: 'Clean pantry equipped with chilled RO water dispenser and hot beverage machine.',
+    url: '/photos/water-and-tea-facilities.jpeg',
+    title: 'RO Water & Fresh Tea/Coffee Station',
+    desc: 'Clean pantry equipped with Blue Star cold/hot RO water dispenser and hot tea & coffee vending.',
   },
 ];
 
@@ -82,7 +81,7 @@ const Home = () => {
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-black border border-amber-500/40 p-1.5 shadow-md flex items-center justify-center">
-                    <img src="/photos/real-logo.jpeg" alt="Shivaji Library Official Logo" className="w-full h-full object-contain" />
+                    <img src="/photos/logo.jpeg" alt="Shivaji Library Logo" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <span className="text-xs font-black text-amber-400 tracking-widest uppercase">
@@ -127,7 +126,7 @@ const Home = () => {
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <Link
                   to="/register"
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-sm sm:text-base shadow-lg shadow-amber-500/30 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-black text-sm sm:text-base shadow-lg shadow-amber-500/30 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2"
                 >
                   <span>Choose Your Plan (From ₹800)</span>
                   <ArrowRight className="w-4 h-4" />
@@ -147,11 +146,11 @@ const Home = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div
-                  onClick={() => setSelectedImage({ url: '/photos/hall1.jpeg', title: 'Shivaji Library Real Reading Hall' })}
+                  onClick={() => setSelectedImage({ url: '/photos/1.jpeg', title: 'Shivaji Library Real Reading Hall' })}
                   className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-500/40 group cursor-pointer"
                 >
                   <img
-                    src="/photos/hall1.jpeg"
+                    src="/photos/1.jpeg"
                     alt="Shivaji Library Real Study Hall"
                     className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition duration-700"
                   />
@@ -176,7 +175,7 @@ const Home = () => {
                     ₹
                   </div>
                   <div>
-                    <p className="text-xs font-black text-amber-400">Half Day: ₹800 • Full Day: ₹1,500</p>
+                    <p className="text-xs font-black text-amber-400">Half Day: ₹800 • Full Day: ₹1,200</p>
                     <p className="text-[11px] text-slate-400">Full Day + Locker: ₹1,800/Month</p>
                   </div>
                 </div>
@@ -198,15 +197,15 @@ const Home = () => {
               Explore Our Actual Study Hall
             </h2>
             <p className="text-slate-500 text-xs sm:text-sm mt-1">
-              Photographed directly on-site at Plot No. FC-4, Mehta Chowk, Shivaji Enclave.
+              Real photos taken on-site at Plot No. FC-4, Mehta Chowk, Shivaji Enclave.
             </p>
           </div>
           <button
-            onClick={() => setSelectedImage({ url: '/official-poster.png', title: 'Official Shivaji Library Poster' })}
+            onClick={() => setSelectedImage({ url: '/photos/2.jpeg', title: 'Center Aisle Study Hall View' })}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 text-amber-900 border border-amber-300 text-xs font-extrabold hover:bg-amber-100 transition"
           >
             <Eye className="w-4 h-4 text-amber-600" />
-            <span>View Official Brochure</span>
+            <span>View Full Gallery</span>
           </button>
         </div>
 
@@ -248,12 +247,12 @@ const Home = () => {
             Official Membership Pricing
           </h2>
           <p className="text-slate-600 text-sm">
-            Reserve your seat at Shivaji Library. All plans include air conditioning, high-speed fiber Wi-Fi, and pin-drop silence.
+            Reserve your designated seat at Shivaji Library. All plans include air conditioning, high-speed fiber Wi-Fi, and pin-drop silence.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {/* Plan 1: Half Day */}
+          {/* Plan 1: Half Day Reserved (₹800) */}
           <div className="bg-amber-50/50 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400 text-amber-800 flex items-center justify-center">
@@ -266,7 +265,7 @@ const Home = () => {
                   <span className="text-xs text-slate-500 font-bold">/ Month</span>
                 </div>
                 <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-400/30 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
-                  HALF DAY RESERVE SEAT
+                  HALF DAY RESERVED
                 </div>
               </div>
 
@@ -298,11 +297,11 @@ const Home = () => {
               to="/register?plan=half_day"
               className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition"
             >
-              Reserve Half Day Seat
+              Reserve Half Day Seat (₹800)
             </Link>
           </div>
 
-          {/* Plan 2: Full Day for a Month (Most Popular) */}
+          {/* Plan 2: Full Day Reserved (₹1,200) - Most Popular */}
           <div className="bg-gradient-to-b from-neutral-900 to-black text-white rounded-3xl p-8 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-3 border-2 border-amber-500">
             <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-yellow-400 text-neutral-950 text-[11px] font-black uppercase px-4 py-1 rounded-full shadow">
               ★ Most Popular Choice
@@ -315,11 +314,11 @@ const Home = () => {
 
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl sm:text-5xl font-black text-white">₹1500</span>
+                  <span className="text-4xl sm:text-5xl font-black text-white">₹1200</span>
                   <span className="text-xs text-amber-300 font-bold">/ Month</span>
                 </div>
                 <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wider">
-                  FULL DAY RESERVE SEAT FOR A MONTH
+                  FULL DAY RESERVED
                 </div>
               </div>
 
@@ -355,11 +354,11 @@ const Home = () => {
               to="/register?plan=full_day"
               className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-black text-xs uppercase tracking-wider shadow-lg transition"
             >
-              Reserve Full Day Seat
+              Reserve Full Day Seat (₹1,200)
             </Link>
           </div>
 
-          {/* Plan 3: Full Day with Locker */}
+          {/* Plan 3: Full Day Reserved + Locker (₹1,800) */}
           <div className="bg-amber-50/50 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400 text-amber-800 flex items-center justify-center">
@@ -372,7 +371,7 @@ const Home = () => {
                   <span className="text-xs text-slate-500 font-bold">/ Month</span>
                 </div>
                 <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-400/30 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
-                  FULL DAY RESERVE SEAT WITH LOCKER
+                  FULL DAY RESERVED + LOCKER
                 </div>
               </div>
 
@@ -408,7 +407,7 @@ const Home = () => {
               to="/register?plan=full_day_locker"
               className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition"
             >
-              Reserve Seat + Locker
+              Reserve Seat + Locker (₹1,800)
             </Link>
           </div>
         </div>

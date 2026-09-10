@@ -51,7 +51,7 @@ const Navbar = () => {
           {/* Official Logo & Branding */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-neutral-900 via-neutral-950 to-black p-2 flex items-center justify-center shadow-md border border-amber-500/30 group-hover:scale-105 transition transform">
-              <img src="/logo.svg" alt="Shivaji Library Emblem" className="w-full h-full object-contain" />
+              <img src="/photos/logo.png" alt="Shivaji Library Emblem" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
