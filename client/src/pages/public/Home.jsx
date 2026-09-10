@@ -118,7 +118,7 @@ const Home = () => {
                 </div>
                 <div className="flex items-center gap-2 text-slate-200 bg-white/5 border border-white/10 px-3 py-2.5 rounded-xl backdrop-blur-sm">
                   <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="font-semibold">05:00 AM – 11:30 PM</span>
+                  <span className="font-semibold">08:00 AM – 10:00 PM</span>
                 </div>
               </div>
 
@@ -175,8 +175,8 @@ const Home = () => {
                     ₹
                   </div>
                   <div>
-                    <p className="text-xs font-black text-amber-400">Half Day: ₹800 • Full Day: ₹1,200</p>
-                    <p className="text-[11px] text-slate-400">Full Day + Locker: ₹1,800/Month</p>
+                    <p className="text-xs font-black text-amber-400">Half Day: ₹800 • Full Day: ₹1,300</p>
+                    <p className="text-[11px] text-slate-400">Full Day + Locker: ₹1,500/Month</p>
                   </div>
                 </div>
               </div>
@@ -301,7 +301,7 @@ const Home = () => {
             </Link>
           </div>
 
-          {/* Plan 2: Full Day Reserved (₹1,200) - Most Popular */}
+          {/* Plan 2: Full Day Reserved (₹1,300) - Most Popular */}
           <div className="bg-gradient-to-b from-neutral-900 to-black text-white rounded-3xl p-8 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-3 border-2 border-amber-500">
             <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-yellow-400 text-neutral-950 text-[11px] font-black uppercase px-4 py-1 rounded-full shadow">
               ★ Most Popular Choice
@@ -314,7 +314,7 @@ const Home = () => {
 
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl sm:text-5xl font-black text-white">₹1200</span>
+                  <span className="text-4xl sm:text-5xl font-black text-white">₹1300</span>
                   <span className="text-xs text-amber-300 font-bold">/ Month</span>
                 </div>
                 <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wider">
@@ -329,7 +329,7 @@ const Home = () => {
               <ul className="space-y-2.5 pt-4 border-t border-neutral-800 text-xs text-slate-200 font-medium">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>Full Day Reserved Seat (05:00 AM – 11:30 PM)</span>
+                  <span>Full Day Reserved Seat (08:00 AM – 10:00 PM)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
@@ -354,11 +354,11 @@ const Home = () => {
               to="/register?plan=full_day"
               className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-black text-xs uppercase tracking-wider shadow-lg transition"
             >
-              Reserve Full Day Seat (₹1,200)
+              Reserve Full Day Seat (₹1,300)
             </Link>
           </div>
 
-          {/* Plan 3: Full Day Reserved + Locker (₹1,800) */}
+          {/* Plan 3: Full Day Reserved + Locker (₹1,500) */}
           <div className="bg-amber-50/50 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400 text-amber-800 flex items-center justify-center">
@@ -367,7 +367,7 @@ const Home = () => {
 
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl sm:text-5xl font-black text-slate-900">₹1800</span>
+                  <span className="text-4xl sm:text-5xl font-black text-slate-900">₹1500</span>
                   <span className="text-xs text-slate-500 font-bold">/ Month</span>
                 </div>
                 <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-400/30 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
@@ -390,7 +390,7 @@ const Home = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Full Access (05:00 AM – 11:30 PM)</span>
+                  <span>Full Access (08:00 AM – 10:00 PM)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -407,7 +407,7 @@ const Home = () => {
               to="/register?plan=full_day_locker"
               className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition"
             >
-              Reserve Seat + Locker (₹1,800)
+              Reserve Seat + Locker (₹1,500)
             </Link>
           </div>
         </div>
@@ -451,7 +451,7 @@ const Home = () => {
                   <Clock className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
                     <strong className="text-white block">Timings:</strong>
-                    <span>05:00 AM – 11:30 PM (7 Days a week)</span>
+                    <span>08:00 AM – 10:00 PM (7 Days a week)</span>
                   </div>
                 </div>
               </div>

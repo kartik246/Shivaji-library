@@ -11,7 +11,7 @@ export const PLAN_CONFIG = {
     id: "full_day",
     name: "Full Day Reserved",
     durationDays: 30,
-    price: 1200,
+    price: 1300,
     subtitle: "Study all day, every day",
     description: "100% reserved desk with numbered cubicle. Full day uninterrupted access.",
     popular: true,
@@ -20,7 +20,7 @@ export const PLAN_CONFIG = {
     id: "full_day_locker",
     name: "Full Day Reserved + Locker",
     durationDays: 30,
-    price: 1800,
+    price: 1500,
     subtitle: "Your seat. Your things. Always secure",
     description: "Full day reserved study cubicle plus private key-locked wooden locker for heavy books and laptop.",
   },
@@ -29,7 +29,7 @@ export const PLAN_CONFIG = {
     id: "monthly",
     name: "Full Day Reserved",
     durationDays: 30,
-    price: 1200,
+    price: 1300,
     subtitle: "Study all day, every day",
     description: "Full day uninterrupted study desk for 30 days.",
   },
@@ -56,7 +56,7 @@ export const getPlanDurationDays = (plan) => {
 };
 
 export const getPlanPrice = (plan) => {
-  return PLAN_CONFIG[plan]?.price || 1200;
+  return PLAN_CONFIG[plan]?.price || 1300;
 };
 
 export const calculateRenewalPeriod = (currentEndDate, plan) => {

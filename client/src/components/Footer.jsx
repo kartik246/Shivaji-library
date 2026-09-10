@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="p-2.5 rounded-xl bg-neutral-900 border border-amber-500/40">
                 <div className="flex justify-between font-bold">
                   <span>Full Day Reserve Seat</span>
-                  <span className="text-amber-400">₹1,200/mo</span>
+                  <span className="text-amber-400">₹1,300/mo</span>
                 </div>
                 <p className="text-[11px] text-slate-400 mt-0.5">Study all day, every day</p>
               </div>
@@ -80,7 +80,7 @@ const Footer = () => {
               <div className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
                 <div className="flex justify-between font-bold">
                   <span>Full Day with Locker</span>
-                  <span className="text-amber-400">₹1,800/mo</span>
+                  <span className="text-amber-400">₹1,500/mo</span>
                 </div>
                 <p className="text-[11px] text-slate-400 mt-0.5">Your seat. Your things. Always secure</p>
               </div>
@@ -101,7 +101,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-slate-300">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>05:00 AM – 11:30 PM (7 Days Open)</span>
+                <span>08:00 AM – 10:00 PM (7 Days Open)</span>
               </div>
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />

@@ -83,7 +83,7 @@ const About = () => {
           <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
             <Clock className="w-6 h-6" />
           </div>
-          <h3 className="font-bold text-slate-900 text-base">05:00 AM – 11:30 PM Timings</h3>
+          <h3 className="font-bold text-slate-900 text-base">08:00 AM – 10:00 PM Timings</h3>
           <p className="text-xs text-slate-600 leading-relaxed">
             Early morning to late night study hours, 7 days a week, 365 days a year with full power backup.
           </p>

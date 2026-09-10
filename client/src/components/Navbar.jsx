@@ -28,7 +28,7 @@ const Navbar = () => {
             </span>
             <span className="flex items-center gap-1.5 text-slate-300">
               <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              05:00 AM – 11:30 PM (7 Days Open)
+              08:00 AM – 10:00 PM (7 Days Open)
             </span>
             <a href="tel:9319880227" className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-semibold transition">
               <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />

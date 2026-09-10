@@ -103,7 +103,7 @@ const LocationContact = () => {
               </div>
               <div className="space-y-1">
                 <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Operating Timings</p>
-                <p className="text-sm font-bold text-slate-900">05:00 AM – 11:30 PM</p>
+                <p className="text-sm font-bold text-slate-900">08:00 AM – 10:00 PM</p>
                 <p className="text-xs text-slate-500">Open 7 days a week, including Sundays & holidays.</p>
               </div>
             </div>

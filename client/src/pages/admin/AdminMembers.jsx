@@ -20,9 +20,9 @@ import {
 
 const PLAN_RATES = {
   half_day: 800,
-  full_day: 1200,
-  full_day_locker: 1800,
-  monthly: 1200,
+  full_day: 1300,
+  full_day_locker: 1500,
+  monthly: 1300,
   quarterly: 3400,
   yearly: 13000,
 };
@@ -444,9 +444,9 @@ const AdminMembers = () => {
                   className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-medium text-slate-800"
                 >
                   <option value="half_day">Half Day Reserved (30 Days - ₹800)</option>
-                  <option value="full_day">Full Day Reserved (30 Days - ₹1,200)</option>
-                  <option value="full_day_locker">Full Day + Locker (30 Days - ₹1,800)</option>
-                  <option value="monthly">Monthly Pass (Legacy - ₹1,200)</option>
+                  <option value="full_day">Full Day Reserved (30 Days - ₹1,300)</option>
+                  <option value="full_day_locker">Full Day + Locker (30 Days - ₹1,500)</option>
+                  <option value="monthly">Monthly Pass (Legacy - ₹1,300)</option>
                   <option value="quarterly">Quarterly Pass (Legacy - ₹3,400)</option>
                   <option value="yearly">Annual Pass (Legacy - ₹13,000)</option>
                 </select>

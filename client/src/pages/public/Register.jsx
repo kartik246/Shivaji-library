@@ -15,7 +15,7 @@ const PLAN_DATA = {
   full_day: {
     id: 'full_day',
     name: 'Full Day Reserve Seat (Monthly)',
-    price: 1200,
+    price: 1300,
     days: 30,
     subtitle: 'Study all day, every day',
     icon: Calendar,
@@ -24,7 +24,7 @@ const PLAN_DATA = {
   full_day_locker: {
     id: 'full_day_locker',
     name: 'Full Day Seat with Locker',
-    price: 1800,
+    price: 1500,
     days: 30,
     subtitle: 'Your seat. Your things. Always secure',
     icon: Lock,

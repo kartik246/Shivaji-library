@@ -19,9 +19,9 @@ import {
 
 const PLAN_RATES = {
   half_day: { name: 'Half Day Reserved', price: 800, days: 30 },
-  full_day: { name: 'Full Day Reserved', price: 1200, days: 30 },
-  full_day_locker: { name: 'Full Day + Locker', price: 1800, days: 30 },
-  monthly: { name: 'Full Day Reserved', price: 1200, days: 30 },
+  full_day: { name: 'Full Day Reserved', price: 1300, days: 30 },
+  full_day_locker: { name: 'Full Day + Locker', price: 1500, days: 30 },
+  monthly: { name: 'Full Day Reserved', price: 1300, days: 30 },
 };
 
 const MemberDashboard = () => {
