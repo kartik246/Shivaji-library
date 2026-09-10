@@ -1,115 +1,137 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, MapPin, Phone, Mail, Clock, ShieldCheck, ExternalLink, Heart } from 'lucide-react';
+import { MapPin, Phone, Clock, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800">
+    <footer className="bg-neutral-950 text-slate-300 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: About */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white">
-                <BookOpen className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-black border border-amber-500/40 p-2 flex items-center justify-center">
+                <img src="/logo.svg" alt="Shivaji Library" className="w-full h-full object-contain" />
               </div>
-              <span className="font-extrabold text-xl text-white tracking-tight">Shivaji Library</span>
+              <div>
+                <span className="font-extrabold text-lg text-white tracking-tight block">SHIVAJI LIBRARY</span>
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">
+                  Focus Today, Success Tomorrow
+                </span>
+              </div>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              A serene, premium study and reading space in Tagore Garden Extension, New Delhi. Designed for civil service aspirants, college scholars, competitive exam candidates, and avid readers.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Your Space. Your Time. Your Success. An 80-seater modern, distraction-free study sanctuary designed for competitive exams and focused learning in West Delhi.
             </p>
-            <div className="flex items-center gap-2 text-xs text-slate-400">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              Air Conditioned • High-Speed Wi-Fi • Power Sockets
-            </div>
+            <p className="text-xs font-semibold text-amber-400">
+              &quot;A Quiet Place to Achieve More&quot;
+            </p>
           </div>
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Navigation</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-neutral-800 pb-2">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-400 font-medium">
               <li>
-                <Link to="/" className="hover:text-blue-400 transition">Home</Link>
+                <Link to="/" className="hover:text-amber-400 transition">Home</Link>
               </li>
               <li>
-                <Link to="/books" className="hover:text-blue-400 transition">Book Showcase & Catalog</Link>
+                <Link to="/books" className="hover:text-amber-400 transition">Reference Book Catalog</Link>
               </li>
               <li>
-                <Link to="/register" className="hover:text-blue-400 transition">Membership Plans & Registration</Link>
+                <Link to="/register" className="hover:text-amber-400 transition">Reserve Your Seat (Plans)</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-blue-400 transition">About Shivaji Library</Link>
+                <Link to="/about" className="hover:text-amber-400 transition">Facilities & Rules</Link>
               </li>
               <li>
-                <Link to="/location" className="hover:text-blue-400 transition">Location & Directions</Link>
+                <Link to="/location" className="hover:text-amber-400 transition">Map & Metro Directions</Link>
               </li>
               <li>
-                <Link to="/member/login" className="hover:text-blue-400 transition">Member Self-Service Portal</Link>
+                <Link to="/member/login" className="hover:text-amber-400 transition">Member Self-Service Portal</Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Timings & Plans */}
+          {/* Col 3: Official Plans */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Timings & Plans</h4>
-            <div className="space-y-3 text-sm text-slate-400">
-              <div className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-medium text-slate-200">Library Hours</p>
-                  <p className="text-xs">Monday – Sunday (7 Days Open)</p>
-                  <p className="text-xs text-slate-300">7:00 AM – 10:00 PM</p>
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-neutral-800 pb-2">
+              Official Membership Plans
+            </h4>
+            <div className="space-y-3 text-xs text-slate-300">
+              <div className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+                <div className="flex justify-between font-bold">
+                  <span>Half Day Reserve Seat</span>
+                  <span className="text-amber-400">₹800/mo</span>
                 </div>
+                <p className="text-[11px] text-slate-400 mt-0.5">Perfect for focused half-day sessions</p>
               </div>
-              <div className="pt-2 border-t border-slate-800 space-y-1 text-xs">
-                <p className="font-medium text-slate-200">Membership Passes:</p>
-                <p>• Monthly Pass: <span className="text-white font-bold">₹800</span></p>
-                <p>• Quarterly Pass: <span className="text-white font-bold">₹2,200</span></p>
-                <p>• Annual Pass: <span className="text-white font-bold">₹8,000</span></p>
+
+              <div className="p-2.5 rounded-xl bg-neutral-900 border border-amber-500/40">
+                <div className="flex justify-between font-bold">
+                  <span>Full Day Reserve Seat</span>
+                  <span className="text-amber-400">₹1,500/mo</span>
+                </div>
+                <p className="text-[11px] text-slate-400 mt-0.5">Study all day, every day</p>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+                <div className="flex justify-between font-bold">
+                  <span>Full Day with Locker</span>
+                  <span className="text-amber-400">₹1,800/mo</span>
+                </div>
+                <p className="text-[11px] text-slate-400 mt-0.5">Your seat. Your things. Always secure</p>
               </div>
             </div>
           </div>
 
-          {/* Col 4: Location (Source of Truth) */}
+          {/* Col 4: Location & Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Location (Delhi)</h4>
-            <div className="space-y-3 text-sm text-slate-400">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-neutral-800 pb-2">
+              Visit or Contact
+            </h4>
+            <div className="space-y-3 text-xs text-slate-400">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                <address className="not-italic text-xs leading-relaxed text-slate-300">
-                  Plot No. F-4, near Gurudwara, Mehta Chowk, Block FC, Shivaji Enclave, Tagore Garden Extension, New Delhi, Delhi 110027
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <address className="not-italic leading-relaxed text-slate-300">
+                  Plot no -FC4 (near gurudwara) Mehta Chowk, Shivaji Enclave, Tagore Garden Extension, New Delhi - 110027
                 </address>
               </div>
-              <div>
+              <div className="flex items-center gap-2 text-slate-300">
+                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>05:00 AM – 11:30 PM (7 Days Open)</span>
+              </div>
+              <div className="flex items-center gap-2 pt-1">
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href="tel:9319880227" className="font-bold text-amber-400 hover:underline text-sm">
+                  +91 9319880227
+                </a>
+              </div>
+              <div className="pt-2">
                 <a
                   href="https://maps.app.goo.gl/7iusFAvcd2ZNShiL8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 bg-slate-800/80 hover:bg-slate-800 px-3 py-1.5 rounded-md border border-slate-700 transition"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-400 hover:text-amber-300 bg-neutral-900 hover:bg-neutral-800 px-3 py-1.5 rounded-lg border border-neutral-700 transition"
                 >
-                  <span>Open in Google Maps</span>
+                  <span>Open on Google Maps</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
-              </div>
-              <div className="flex items-center gap-2 text-xs pt-1">
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
-                <span>+91 98765 43210</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs">
-                <Mail className="w-3.5 h-3.5 text-blue-400" />
-                <span>contact@shivajilibrary.com</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <div className="mt-12 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Shivaji Library. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link to="/location" className="hover:text-slate-400">Directions</Link>
-            <Link to="/register" className="hover:text-slate-400">Join Library</Link>
-            <Link to="/admin/login" className="hover:text-slate-400">Staff Portal</Link>
+            <span>80-Seater Capacity</span>
+            <span>Air Conditioned</span>
+            <span>Wi-Fi & Lockers</span>
+            <Link to="/admin/login" className="hover:text-amber-400">Staff Login</Link>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ const memberSchema = new mongoose.Schema(
     },
     plan: {
       type: String,
-      enum: ["monthly", "quarterly", "yearly"],
+      enum: ["half_day", "full_day", "full_day_locker", "monthly", "quarterly", "yearly"],
       required: [true, "Membership plan is required"],
     },
     feeAmount: {
@@ -60,7 +60,6 @@ const memberSchema = new mongoose.Schema(
   }
 );
 
-// Helpful virtual to calculate remaining days
 memberSchema.virtual("daysRemaining").get(function () {
   if (!this.membershipEndDate) return 0;
   const diffMs = new Date(this.membershipEndDate).getTime() - Date.now();

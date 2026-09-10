@@ -2,23 +2,51 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import {
-  BookOpen,
   Clock,
   MapPin,
-  Wifi,
   Sparkles,
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
   Zap,
   Coffee,
-  VolumeX,
   ExternalLink,
+  Phone,
+  Lock,
+  Calendar,
+  Users,
+  Eye,
+  Camera,
+  X,
 } from 'lucide-react';
+
+const GALLERY_PHOTOS = [
+  {
+    url: '/photos/hall1.jpeg',
+    title: 'Main 80-Seater Reading Hall',
+    desc: 'Spacious, air-conditioned hall with numbered personal study cubicles and ambient lighting.',
+  },
+  {
+    url: '/photos/hall2.jpeg',
+    title: 'Quiet Study Aisle & Numbered Desks',
+    desc: 'Wide corridors, polished marble floors, and comfortable high-back revolving chairs.',
+  },
+  {
+    url: '/photos/hall3.jpeg',
+    title: 'Individual Cubicles with Private Lockers',
+    desc: 'Numbered desks 12, 13, 14, 15, 16... with dedicated key lockers right above your seat.',
+  },
+  {
+    url: '/photos/amenities.jpeg',
+    title: 'Blue Star RO Water & Hot Tea/Coffee Station',
+    desc: 'Clean pantry equipped with chilled RO water dispenser and hot beverage machine.',
+  },
+];
 
 const Home = () => {
   const [featuredBooks, setFeaturedBooks] = useState([]);
   const [loadingBooks, setLoadingBooks] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     const loadBooks = async () => {
@@ -38,92 +66,118 @@ const Home = () => {
 
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
-      {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 via-indigo-900 to-slate-900 text-white pt-12 pb-20 lg:pt-20 lg:pb-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.15),transparent_60%)] pointer-events-none"></div>
+      {/* 1. Official Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-neutral-950 via-neutral-900 to-stone-900 text-white pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-amber-500/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,158,11,0.12),transparent_65%)] pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
+            {/* Left Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-semibold backdrop-blur-sm">
-                <Sparkles className="w-4 h-4 text-blue-300" />
-                <span>Now Open in Tagore Garden Extension, New Delhi</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold backdrop-blur-sm">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>Shivaji Enclave, Tagore Garden Extension • New Delhi</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                Unlock Deep Focus at <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300">
-                  Shivaji Library
-                </span>
-              </h1>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-black border border-amber-500/40 p-1.5 shadow-md flex items-center justify-center">
+                    <img src="/photos/real-logo.jpeg" alt="Shivaji Library Official Logo" className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-amber-400 tracking-widest uppercase">
+                      SHIVAJI LIBRARY
+                    </span>
+                    <p className="text-[11px] text-slate-400 uppercase font-semibold">
+                      Focus Today, Success Tomorrow
+                    </p>
+                  </div>
+                </div>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                A modern, distraction-free study sanctuary crafted for civil services, medical, engineering, and competitive exam aspirants. Individual cubicles, high-speed Wi-Fi, air conditioning, and a curated book collection.
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight uppercase">
+                  YOUR SPACE. <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+                    YOUR TIME.
+                  </span> <br />
+                  YOUR SUCCESS.
+                </h1>
+              </div>
+
+              <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+                <strong>A quiet place to achieve more.</strong> An 80-seater modern study sanctuary equipped with individual numbered cubicles, comfortable revolving chairs, key lockers, high-speed fiber Wi-Fi, and 100% peaceful silence.
               </p>
 
-              {/* Badges / Highlights */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm">
-                  <VolumeX className="w-4 h-4 text-cyan-300 shrink-0" />
-                  <span>Pin-Drop Silence</span>
+              {/* Key Facility Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
+                <div className="flex items-center gap-2 text-slate-200 bg-white/5 border border-white/10 px-3 py-2.5 rounded-xl backdrop-blur-sm">
+                  <Users className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span className="font-semibold">80-Seater Capacity</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm">
-                  <Clock className="w-4 h-4 text-emerald-300 shrink-0" />
-                  <span>Open 7:00 AM – 10:00 PM</span>
+                <div className="flex items-center gap-2 text-slate-200 bg-white/5 border border-white/10 px-3 py-2.5 rounded-xl backdrop-blur-sm">
+                  <Lock className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span className="font-semibold">Personal Key Lockers</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm">
-                  <Wifi className="w-4 h-4 text-blue-300 shrink-0" />
-                  <span>High-Speed Wi-Fi</span>
+                <div className="flex items-center gap-2 text-slate-200 bg-white/5 border border-white/10 px-3 py-2.5 rounded-xl backdrop-blur-sm">
+                  <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="font-semibold">05:00 AM – 11:30 PM</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-3">
                 <Link
                   to="/register"
-                  className="px-6 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-sm sm:text-base shadow-lg shadow-amber-500/30 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2"
                 >
-                  <span>Book Your Study Desk</span>
+                  <span>Choose Your Plan (From ₹800)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  to="/location"
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-base border border-white/20 transition inline-flex items-center gap-2"
+
+                <a
+                  href="tel:9319880227"
+                  className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base border border-white/20 transition inline-flex items-center gap-2"
                 >
-                  <MapPin className="w-4 h-4 text-rose-400" />
-                  <span>Find On Map</span>
-                </Link>
+                  <Phone className="w-4 h-4 text-amber-400" />
+                  <span>Call 9319880227</span>
+                </a>
               </div>
             </div>
 
-            {/* Right Images / Card */}
+            {/* Right Column: Actual Real Photo */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <div
+                  onClick={() => setSelectedImage({ url: '/photos/hall1.jpeg', title: 'Shivaji Library Real Reading Hall' })}
+                  className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-500/40 group cursor-pointer"
+                >
                   <img
-                    src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
-                    alt="Shivaji Library quiet reading cubicles"
-                    className="w-full h-80 sm:h-96 object-cover transform hover:scale-105 transition duration-500"
+                    src="/photos/hall1.jpeg"
+                    alt="Shivaji Library Real Study Hall"
+                    className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                    <span className="text-xs font-semibold text-cyan-300 uppercase tracking-widest">
-                      Tagore Garden Extension
-                    </span>
-                    <h3 className="text-xl font-bold text-white">Dedicated Study Cubicles</h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6">
+                    <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                      <ShieldCheck className="w-4 h-4" />
+                      <span>Actual Interior Photo • Shivaji Library</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Dedicated Study Hall</h3>
                     <p className="text-xs text-slate-300 mt-1">
-                      Equipped with personal power socket, LED reading light, and ergonomic backrest seating.
+                      Numbered cubicles, ergonomic black rolling chairs, air conditioning, and personal lockers.
                     </p>
+                    <span className="mt-2 text-[11px] font-bold text-amber-300 flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5" /> Click to zoom photo
+                    </span>
                   </div>
                 </div>
 
-                {/* Floating Micro Card */}
-                <div className="absolute -bottom-6 -left-6 bg-white text-slate-900 p-4 rounded-xl shadow-xl border border-slate-100 hidden sm:flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                    ✓
+                {/* Floating micro price card */}
+                <div className="absolute -bottom-5 -left-5 bg-neutral-900 text-white p-4 rounded-2xl shadow-2xl border border-amber-500/40 hidden sm:flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500 text-black flex items-center justify-center font-black text-lg">
+                    ₹
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-900">Passes From ₹800/Month</p>
-                    <p className="text-[11px] text-slate-500">Flexible monthly, quarterly & yearly plans</p>
+                    <p className="text-xs font-black text-amber-400">Half Day: ₹800 • Full Day: ₹1,500</p>
+                    <p className="text-[11px] text-slate-400">Full Day + Locker: ₹1,800/Month</p>
                   </div>
                 </div>
               </div>
@@ -132,349 +186,335 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Photo Gallery & Facility Highlights */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <span className="text-blue-600 font-bold text-xs uppercase tracking-wider">Atmosphere & Amenities</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-            A Purpose-Built Environment for Peak Productivity
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Every inch of Shivaji Library is engineered to reduce fatigue and encourage long, uninterrupted study hours.
-          </p>
-        </div>
-
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-slate-900 text-lg mb-2">Individual Power Ports</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Every desk has dedicated electrical sockets to keep your laptop, tablet, and mobile charged non-stop.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-4">
-              <Wifi className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-slate-900 text-lg mb-2">High-Speed Fiber Wi-Fi</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Ultra-reliable fiber internet with dual backup connections for seamless online lectures and mock test taking.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-slate-900 text-lg mb-2">Cool AC & Air Purified</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Full climate control with fresh air circulation and clean RO drinking water available throughout the day.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
-              <Coffee className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-slate-900 text-lg mb-2">Discussion & Break Area</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Separate zone for taking phone calls, having quick lunch or refreshments, without disturbing reading zones.
-            </p>
-          </div>
-        </div>
-
-        {/* Gallery Visual Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          <div className="group relative rounded-2xl overflow-hidden shadow-sm h-64 border border-slate-200">
-            <img
-              src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80"
-              alt="Shivaji Library quiet reading hall"
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
-              <span className="text-white text-sm font-semibold">Quiet Reading Hall</span>
-            </div>
-          </div>
-
-          <div className="group relative rounded-2xl overflow-hidden shadow-sm h-64 border border-slate-200">
-            <img
-              src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80"
-              alt="Reference book stacks"
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
-              <span className="text-white text-sm font-semibold">Extensive Reference Collection</span>
-            </div>
-          </div>
-
-          <div className="group relative rounded-2xl overflow-hidden shadow-sm h-64 border border-slate-200">
-            <img
-              src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=600&q=80"
-              alt="Personal study desks"
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
-              <span className="text-white text-sm font-semibold">Individual Desk Spaces</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Membership Plans Section */}
-      <section className="bg-slate-100 py-16 lg:py-20 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-wider">Transparent Pricing</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Simple, Affordable Membership Plans
-            </h2>
-            <p className="text-slate-600 text-sm">
-              All plans include complete access to study desks, Wi-Fi, air conditioning, and reference book collections.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {/* Monthly */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Flexible</span>
-                <h3 className="text-2xl font-bold text-slate-900">Monthly Pass</h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-slate-900">₹800</span>
-                  <span className="text-xs text-slate-500">/ 30 days</span>
-                </div>
-                <p className="text-xs text-slate-600">Ideal for short-term focused preparation or trial periods.</p>
-                <ul className="space-y-2.5 pt-4 text-xs text-slate-700">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>7:00 AM – 10:00 PM Access</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>High-Speed Wi-Fi</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Power socket & RO Water</span>
-                  </li>
-                </ul>
-              </div>
-              <Link
-                to="/register?plan=monthly"
-                className="mt-8 block text-center py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition"
-              >
-                Join with Monthly
-              </Link>
-            </div>
-
-            {/* Quarterly - Most Popular */}
-            <div className="bg-gradient-to-b from-blue-900 to-indigo-950 text-white rounded-2xl p-8 shadow-xl relative flex flex-col justify-between transform md:-translate-y-2 border-2 border-blue-400/50">
-              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full shadow">
-                Most Popular Choice
-              </div>
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">Quarterly Saving</span>
-                <h3 className="text-2xl font-bold text-white">Quarterly Pass</h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-white">₹2,200</span>
-                  <span className="text-xs text-blue-200">/ 90 days</span>
-                </div>
-                <p className="text-xs text-blue-100">Save ₹200 on regular monthly renewal fees.</p>
-                <ul className="space-y-2.5 pt-4 text-xs text-blue-100">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                    <span>Full 90 days uninterrupted access</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                    <span>Preferred desk allocation option</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                    <span>Reference book borrowing rights</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                    <span>Automated renewal expiry alerts</span>
-                  </li>
-                </ul>
-              </div>
-              <Link
-                to="/register?plan=quarterly"
-                className="mt-8 block text-center py-3 px-4 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm shadow-lg transition"
-              >
-                Join with Quarterly
-              </Link>
-            </div>
-
-            {/* Annual */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Best Value</span>
-                <h3 className="text-2xl font-bold text-slate-900">Annual Pass</h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-slate-900">₹8,000</span>
-                  <span className="text-xs text-slate-500">/ 365 days</span>
-                </div>
-                <p className="text-xs text-slate-600">Save ₹1,600 per year. Fixed desk reservation available.</p>
-                <ul className="space-y-2.5 pt-4 text-xs text-slate-700">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Full 365 days access guarantee</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Fixed locker & desk preference</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Highest cost savings for UPSC/JEE candidates</span>
-                  </li>
-                </ul>
-              </div>
-              <Link
-                to="/register?plan=yearly"
-                className="mt-8 block text-center py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition"
-              >
-                Join with Annual
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Featured Book Collection Preview */}
+      {/* 2. Real Photo Gallery of Shivaji Library */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
           <div>
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-wider">Book Showcase</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Featured In Our Reading Room</h2>
+            <div className="flex items-center gap-2 text-amber-600 font-extrabold text-xs uppercase tracking-widest">
+              <Camera className="w-4 h-4" />
+              <span>Real Photo Gallery</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tight mt-1">
+              Explore Our Actual Study Hall
+            </h2>
             <p className="text-slate-500 text-xs sm:text-sm mt-1">
-              Browse our curated reference titles available for in-library reading and study.
+              Photographed directly on-site at Plot No. FC-4, Mehta Chowk, Shivaji Enclave.
             </p>
           </div>
-          <Link
-            to="/books"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700 transition"
+          <button
+            onClick={() => setSelectedImage({ url: '/official-poster.png', title: 'Official Shivaji Library Poster' })}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 text-amber-900 border border-amber-300 text-xs font-extrabold hover:bg-amber-100 transition"
           >
-            <span>View Full Catalog</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+            <Eye className="w-4 h-4 text-amber-600" />
+            <span>View Official Brochure</span>
+          </button>
         </div>
 
-        {loadingBooks ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="bg-white rounded-2xl p-4 border border-slate-200 animate-pulse space-y-3">
-                <div className="w-full h-48 bg-slate-200 rounded-xl"></div>
-                <div className="h-4 bg-slate-200 rounded w-3/4"></div>
-                <div className="h-3 bg-slate-200 rounded w-1/2"></div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredBooks.map((book) => (
-              <div
-                key={book._id}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between"
-              >
-                <div className="relative h-48 bg-slate-100 overflow-hidden">
-                  <img
-                    src={book.coverImageUrl || 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80'}
-                    alt={book.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        book.available ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
-                      }`}
-                    >
-                      {book.available ? 'In Library' : 'Reference Only'}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4 space-y-1">
-                  <span className="text-[11px] font-semibold text-blue-600 block uppercase tracking-wider">
-                    {book.genre}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {GALLERY_PHOTOS.map((item, idx) => (
+            <div
+              key={idx}
+              onClick={() => setSelectedImage(item)}
+              className="group bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer flex flex-col"
+            >
+              <div className="relative h-60 bg-slate-100 overflow-hidden">
+                <img
+                  src={item.url}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                  <span className="px-3 py-1.5 rounded-full bg-black/70 text-white text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm">
+                    <Eye className="w-3.5 h-3.5" /> View Photo
                   </span>
-                  <h4 className="font-bold text-slate-900 text-sm line-clamp-1">{book.title}</h4>
-                  <p className="text-xs text-slate-500">By {book.author}</p>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="p-4 flex-1 flex flex-col justify-between space-y-1">
+                <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* 5. Location Section with Embedded Map (Source of Truth) */}
+      {/* 3. Official "CHOOSE YOUR PLAN" Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-          {/* Location Info */}
-          <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6">
-            <div>
-              <span className="text-blue-600 font-bold text-xs uppercase tracking-wider">Find Us in Delhi</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 mb-4">
-                Visit Shivaji Library
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+          <div className="inline-flex items-center gap-1.5 text-amber-600 font-extrabold text-xs uppercase tracking-widest">
+            <span>CHOOSE YOUR PLAN</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight">
+            Official Membership Pricing
+          </h2>
+          <p className="text-slate-600 text-sm">
+            Reserve your seat at Shivaji Library. All plans include air conditioning, high-speed fiber Wi-Fi, and pin-drop silence.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          {/* Plan 1: Half Day */}
+          <div className="bg-amber-50/50 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400 text-amber-800 flex items-center justify-center">
+                <Clock className="w-6 h-6" />
+              </div>
+
+              <div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-black text-slate-900">₹800</span>
+                  <span className="text-xs text-slate-500 font-bold">/ Month</span>
+                </div>
+                <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-400/30 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
+                  HALF DAY RESERVE SEAT
+                </div>
+              </div>
+
+              <p className="text-xs font-medium text-slate-600 italic">
+                &ldquo;Perfect for focused half-day sessions&rdquo;
+              </p>
+
+              <ul className="space-y-2.5 pt-4 border-t border-amber-200/60 text-xs text-slate-700 font-medium">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Morning or Evening Shift Access</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>High-Speed Fiber Wi-Fi</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Dedicated Power Socket & Desk Light</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Air-Conditioned & RO Water</span>
+                </li>
+              </ul>
+            </div>
+
+            <Link
+              to="/register?plan=half_day"
+              className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition"
+            >
+              Reserve Half Day Seat
+            </Link>
+          </div>
+
+          {/* Plan 2: Full Day for a Month (Most Popular) */}
+          <div className="bg-gradient-to-b from-neutral-900 to-black text-white rounded-3xl p-8 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-3 border-2 border-amber-500">
+            <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-yellow-400 text-neutral-950 text-[11px] font-black uppercase px-4 py-1 rounded-full shadow">
+              ★ Most Popular Choice
+            </div>
+
+            <div className="space-y-5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500 text-black flex items-center justify-center">
+                <Calendar className="w-6 h-6" />
+              </div>
+
+              <div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-black text-white">₹1500</span>
+                  <span className="text-xs text-amber-300 font-bold">/ Month</span>
+                </div>
+                <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wider">
+                  FULL DAY RESERVE SEAT FOR A MONTH
+                </div>
+              </div>
+
+              <p className="text-xs font-semibold text-amber-200 italic">
+                &ldquo;Study all day, every day&rdquo;
+              </p>
+
+              <ul className="space-y-2.5 pt-4 border-t border-neutral-800 text-xs text-slate-200 font-medium">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Full Day Reserved Seat (05:00 AM – 11:30 PM)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Fixed Numbered Study Cubicle</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Comfortable Ergonomic Revolving Chair</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>High-Speed Fiber Wi-Fi & Power Backup</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Separate Dining Area & Parking</span>
+                </li>
+              </ul>
+            </div>
+
+            <Link
+              to="/register?plan=full_day"
+              className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-black text-xs uppercase tracking-wider shadow-lg transition"
+            >
+              Reserve Full Day Seat
+            </Link>
+          </div>
+
+          {/* Plan 3: Full Day with Locker */}
+          <div className="bg-amber-50/50 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400 text-amber-800 flex items-center justify-center">
+                <Lock className="w-6 h-6" />
+              </div>
+
+              <div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-black text-slate-900">₹1800</span>
+                  <span className="text-xs text-slate-500 font-bold">/ Month</span>
+                </div>
+                <div className="mt-3 inline-block px-3 py-1.5 rounded-xl bg-amber-400/30 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
+                  FULL DAY RESERVE SEAT WITH LOCKER
+                </div>
+              </div>
+
+              <p className="text-xs font-medium text-slate-600 italic">
+                &ldquo;Your seat. Your things. Always secure&rdquo;
+              </p>
+
+              <ul className="space-y-2.5 pt-4 border-t border-amber-200/60 text-xs text-slate-700 font-medium">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Full Day Reserved Seat + Private Key Locker</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Leave Heavy Books & Notes Safely Overnight</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Full Access (05:00 AM – 11:30 PM)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Ergonomic Rolling Chair & High-Speed Wi-Fi</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>CCTV Surveillance & Full Power Backup</span>
+                </li>
+              </ul>
+            </div>
+
+            <Link
+              to="/register?plan=full_day_locker"
+              className="mt-8 block text-center py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition"
+            >
+              Reserve Seat + Locker
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Location & Contact Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-neutral-950 text-white rounded-3xl border border-neutral-800 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xl">
+          <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <span className="text-amber-400 font-extrabold text-xs uppercase tracking-widest">
+                VISIT US TODAY
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black uppercase text-white">
+                Shivaji Library
               </h2>
-              <div className="space-y-4 text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-400">
+                Come for a free desk tour and feel the pin-drop silence before reserving your seat.
+              </p>
+
+              <div className="space-y-4 pt-2 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-rose-500 shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-slate-900">Exact Location Address:</p>
-                    <p className="mt-1 leading-relaxed text-xs sm:text-sm text-slate-700">
-                      Plot No. F-4, near Gurudwara, Mehta Chowk, Block FC, Shivaji Enclave, Tagore Garden Extension, New Delhi, Delhi 110027
-                    </p>
+                    <strong className="text-white block">Address:</strong>
+                    <span>Plot no -FC4 (near gurudwara) Mehta Chowk, Shivaji Enclave, Tagore Garden Extension, New Delhi - 110027</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-emerald-600 shrink-0 mt-1" />
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-amber-400 shrink-0" />
                   <div>
-                    <p className="font-bold text-slate-900">Operational Hours:</p>
-                    <p className="text-xs sm:text-sm text-slate-700">7:00 AM – 10:00 PM (Monday through Sunday, 7 Days Open)</p>
+                    <strong className="text-white block">Call / WhatsApp:</strong>
+                    <a href="tel:9319880227" className="text-amber-300 hover:underline font-bold">
+                      9319880227
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Clock className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <div>
+                    <strong className="text-white block">Timings:</strong>
+                    <span>05:00 AM – 11:30 PM (7 Days a week)</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+            <div className="pt-4 flex flex-wrap items-center gap-3">
               <a
                 href="https://maps.app.goo.gl/7iusFAvcd2ZNShiL8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 shadow-sm transition"
+                className="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs sm:text-sm inline-flex items-center gap-2 transition"
               >
-                <span>Navigate on Google Maps</span>
+                <span>Navigate via Google Maps</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <Link
-                to="/register"
-                className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs sm:text-sm inline-flex items-center justify-center transition"
+
+              <a
+                href="tel:9319880227"
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition border border-white/20"
               >
-                Register as Member
-              </Link>
+                <Phone className="w-4 h-4 text-amber-400" />
+                <span>Call Desk</span>
+              </a>
             </div>
           </div>
 
-          {/* Embedded Google Map */}
-          <div className="lg:col-span-7 h-80 sm:h-96 lg:h-auto min-h-[350px] relative bg-slate-200">
+          <div className="lg:col-span-6 h-80 sm:h-96 lg:h-auto min-h-[360px] relative bg-neutral-900">
             <iframe
               title="Shivaji Library Location Map"
               src="https://maps.google.com/maps?q=Plot+No.+F-4,+near+Gurudwara,+Mehta+Chowk,+Block+FC,+Shivaji+Enclave,+Tagore+Garden+Extension,+New+Delhi,+Delhi+110027&t=&z=16&ie=UTF8&iwloc=&output=embed"
               className="w-full h-full border-0"
               allowFullScreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
       </section>
+
+      {/* LIGHTBOX MODAL */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="relative max-w-3xl w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-700">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/80 text-white flex items-center justify-center font-bold hover:bg-black transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="max-h-[75vh] overflow-hidden bg-black flex items-center justify-center">
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                className="w-full h-auto max-h-[75vh] object-contain"
+              />
+            </div>
+            <div className="p-5 text-white">
+              <h4 className="font-bold text-base">{selectedImage.title}</h4>
+              {selectedImage.desc && <p className="text-xs text-slate-400 mt-1">{selectedImage.desc}</p>}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

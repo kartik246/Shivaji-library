@@ -1,112 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Shield, Heart, Award, CheckCircle, MapPin, Users, ArrowRight } from 'lucide-react';
+import { Users, Lock, Zap, Clock, ShieldCheck, CheckCircle2, ArrowRight, Phone } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="space-y-16 py-12 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* 1. Mission Intro */}
+      {/* Title */}
       <div className="max-w-3xl mx-auto text-center space-y-4">
-        <span className="text-blue-600 font-bold text-xs uppercase tracking-wider">Our Story & Mission</span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-          Where Ambitions Meet Peaceful Focus
+        <span className="text-amber-600 font-black text-xs uppercase tracking-widest">
+          YOUR SPACE. YOUR TIME. YOUR SUCCESS.
+        </span>
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">
+          About Shivaji Library
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Founded with a singular vision: to eliminate every distraction standing between hardworking students, scholars, and their dreams.
+          A quiet place to achieve more. Built for civil services, medical, engineering, CA, and competitive exam aspirants who need uninterrupted, pin-drop silence in West Delhi.
         </p>
       </div>
 
-      {/* 2. Story Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            A Haven for Dedicated Learners in Shivaji Enclave
+      {/* Real Photo & Story Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-6 rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40">
+          <img
+            src="/actual-interior.png"
+            alt="Shivaji Library Interior Study Hall"
+            className="w-full h-80 sm:h-96 object-cover"
+          />
+        </div>
+
+        <div className="lg:col-span-6 space-y-5 text-slate-700 leading-relaxed text-sm sm:text-base">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 uppercase">
+            80-Seater Air-Conditioned Study Facility
           </h2>
           <p>
-            Preparing for national competitive exams such as UPSC Civil Services, State PSCs, JEE, NEET, CA, and Banking requires hundreds of hours of deep, uninterrupted concentration. In a bustling city like Delhi, finding a peaceful, climate-controlled, and well-equipped place to study can make all the difference.
+            <strong>Shivaji Library</strong> is located at Plot No. FC-4, near Gurudwara, Mehta Chowk, Shivaji Enclave (Tagore Garden Extension). Designed with an 80-seat capacity, every desk is an individual numbered cubicle providing complete privacy from visual distractions.
           </p>
           <p>
-            <strong>Shivaji Library</strong> was established in Tagore Garden Extension to offer an uncompromising standard of study infrastructure: comfortable ergonomic seating, flicker-free reading lights, personal power sockets at each desk, high-speed fiber internet, and a sacred atmosphere of silence.
+            Equipped with comfortable ergonomic revolving chairs, personal desk power outlets, LED lamps, assignable wooden key lockers, and clean RO drinking water, Shivaji Library gives you everything you need to study for 10+ hours a day with zero fatigue.
           </p>
 
-          <div className="pt-2">
+          <div className="pt-3 flex flex-wrap items-center gap-4">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition"
+              className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase tracking-wider shadow-md transition"
             >
-              <span>Join Shivaji Library Today</span>
-              <ArrowRight className="w-4 h-4" />
+              Reserve Your Seat Now
             </Link>
+            <a
+              href="tel:9319880227"
+              className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs uppercase tracking-wider transition flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-amber-600" />
+              <span>Call: 9319880227</span>
+            </a>
           </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=500&q=80"
-            alt="Library interior books"
-            className="rounded-2xl shadow-sm object-cover h-60 w-full"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=500&q=80"
-            alt="Quiet study area"
-            className="rounded-2xl shadow-sm object-cover h-60 w-full mt-6"
-          />
         </div>
       </div>
 
-      {/* 3. Core Values */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
-        <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-            <Shield className="w-6 h-6" />
-          </div>
-          <h3 className="text-xl font-bold text-slate-900">Absolute Silence</h3>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Strict pin-drop silence rules enforced in all reading halls to safeguard your mental momentum.
-          </p>
-        </div>
-
-        <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-            <Award className="w-6 h-6" />
-          </div>
-          <h3 className="text-xl font-bold text-slate-900">Student First</h3>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Affordable monthly, quarterly, and yearly passes with no hidden fees or locked-in annual contracts.
-          </p>
-        </div>
-
-        <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+      {/* Official Features */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
             <Users className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900">Dedicated Community</h3>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Surround yourself with like-minded peers who are putting in the hours every single day.
+          <h3 className="font-bold text-slate-900 text-base">Individual Numbered Cubicles</h3>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Numbered desk spaces with dividers to prevent visual distractions and promote deep cognitive focus.
           </p>
         </div>
-      </div>
 
-      {/* 4. Code of Conduct */}
-      <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 space-y-6">
-        <h3 className="text-2xl font-bold">Library Rules & Reading Hall Etiquette</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300">
-          <div className="flex items-start gap-3">
-            <CheckCircle className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
-            <span>Mobile phones must remain on silent or flight mode at all times inside the reading hall.</span>
+        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
+            <Lock className="w-6 h-6" />
           </div>
-          <div className="flex items-start gap-3">
-            <CheckCircle className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
-            <span>Phone calls and discussions are strictly reserved for the outdoor discussion terrace.</span>
+          <h3 className="font-bold text-slate-900 text-base">Private Key Lockers</h3>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Assignable wooden lockers with keys. Keep your thick books, test papers, and laptop safe overnight.
+          </p>
+        </div>
+
+        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+            <Clock className="w-6 h-6" />
           </div>
-          <div className="flex items-start gap-3">
-            <CheckCircle className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
-            <span>Please keep your allocated desk clean and dispose of water bottles or paper in designated bins.</span>
-          </div>
-          <div className="flex items-start gap-3">
-            <CheckCircle className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
-            <span>Membership cards must be verified upon entrance at the reception biometric/manual register.</span>
-          </div>
+          <h3 className="font-bold text-slate-900 text-base">05:00 AM – 11:30 PM Timings</h3>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Early morning to late night study hours, 7 days a week, 365 days a year with full power backup.
+          </p>
         </div>
       </div>
     </div>

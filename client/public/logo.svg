@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="35%" stop-color="#EAB308" />
+      <stop offset="70%" stop-color="#CA8A04" />
+      <stop offset="100%" stop-color="#A16207" />
+    </linearGradient>
+    <linearGradient id="goldDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CA8A04" />
+      <stop offset="100%" stop-color="#713F12" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fountain Pen Nib (Top Center) -->
+  <path d="M100 8 L114 38 L112 62 L88 62 L86 38 Z" fill="url(#goldGrad)" stroke="#78350F" stroke-width="1.5" stroke-linejoin="round" />
+  <!-- Nib slit line and breather hole -->
+  <circle cx="100" cy="42" r="3" fill="#0A0A0A" />
+  <line x1="100" y1="8" x2="100" y2="39" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
+  <!-- Nib collar ring -->
+  <path d="M85 62 L115 62 L113 70 L87 70 Z" fill="url(#goldDark)" />
+
+  <!-- Open Book (Left Page) -->
+  <path d="M96 74 C65 74 35 62 14 74 L14 116 C35 104 65 116 96 116 Z" fill="url(#goldGrad)" stroke="#78350F" stroke-width="2" stroke-linejoin="round" />
+  <path d="M96 82 C68 82 40 72 22 82" stroke="#713F12" stroke-width="2" fill="none" />
+  <path d="M96 92 C68 92 40 82 22 92" stroke="#713F12" stroke-width="1.5" fill="none" />
+
+  <!-- Open Book (Right Page) -->
+  <path d="M104 74 C135 74 165 62 186 74 L186 116 C165 104 135 116 104 116 Z" fill="url(#goldGrad)" stroke="#78350F" stroke-width="2" stroke-linejoin="round" />
+  <path d="M104 82 C132 82 160 72 178 82" stroke="#713F12" stroke-width="2" fill="none" />
+  <path d="M104 92 C132 92 160 82 178 92" stroke="#713F12" stroke-width="1.5" fill="none" />
+
+  <!-- Book Spine Base Lines -->
+  <path d="M14 122 C40 110 70 122 96 122" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round" fill="none" />
+  <path d="M186 122 C160 110 130 122 104 122" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round" fill="none" />
+  <path d="M100 116 L100 138" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" />
+</svg>

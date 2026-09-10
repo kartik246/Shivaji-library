@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { BookOpen, CheckCircle, ShieldCheck, AlertCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ShieldCheck, AlertCircle, ArrowRight, Clock, Calendar, Lock } from 'lucide-react';
 
 const PLAN_DATA = {
-  monthly: {
-    name: 'Monthly Pass',
+  half_day: {
+    id: 'half_day',
+    name: 'Half Day Reserve Seat',
     price: 800,
     days: 30,
-    label: '₹800 / 30 Days',
+    subtitle: 'Perfect for focused half-day sessions',
+    icon: Clock,
   },
-  quarterly: {
-    name: 'Quarterly Pass',
-    price: 2200,
-    days: 90,
-    label: '₹2,200 / 90 Days',
+  full_day: {
+    id: 'full_day',
+    name: 'Full Day Reserve Seat (Monthly)',
+    price: 1500,
+    days: 30,
+    subtitle: 'Study all day, every day',
+    icon: Calendar,
+    popular: true,
   },
-  yearly: {
-    name: 'Annual Pass',
-    price: 8000,
-    days: 365,
-    label: '₹8,000 / 365 Days',
+  full_day_locker: {
+    id: 'full_day_locker',
+    name: 'Full Day Seat with Locker',
+    price: 1800,
+    days: 30,
+    subtitle: 'Your seat. Your things. Always secure',
+    icon: Lock,
   },
 };
 
@@ -36,7 +43,7 @@ const Register = () => {
     address: '',
     password: '',
     confirmPassword: '',
-    plan: 'monthly',
+    plan: 'full_day',
   });
 
   const [error, setError] = useState('');
@@ -49,7 +56,6 @@ const Register = () => {
     }
   }, [searchParams]);
 
-  // If already logged in as member, redirect to dashboard
   useEffect(() => {
     if (user && role === 'member') {
       navigate('/member/dashboard');
@@ -66,7 +72,7 @@ const Register = () => {
     setError('');
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match. Please re-enter.');
+      setError('Passwords do not match. Please check again.');
       return;
     }
 
@@ -87,7 +93,6 @@ const Register = () => {
         plan: formData.plan,
       });
 
-      // Redirect immediately to Member Dashboard to view status and pay
       navigate('/member/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || err.message || 'Registration failed.');
@@ -96,33 +101,35 @@ const Register = () => {
     }
   };
 
-  const selectedPlan = PLAN_DATA[formData.plan] || PLAN_DATA.monthly;
+  const selectedPlan = PLAN_DATA[formData.plan] || PLAN_DATA.full_day;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
       <div className="text-center max-w-xl mx-auto space-y-3 mb-10">
-        <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center mx-auto shadow-md shadow-blue-500/20">
-          <BookOpen className="w-6 h-6" />
+        <div className="w-14 h-14 rounded-2xl bg-black border border-amber-500/40 p-2.5 flex items-center justify-center mx-auto shadow-md">
+          <img src="/logo.svg" alt="Shivaji Library" className="w-full h-full object-contain" />
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Member Registration</h1>
-        <p className="text-slate-600 text-sm">
-          Join Shivaji Library to reserve your dedicated study space. Your pass becomes active upon first fee payment.
+        <h1 className="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight">
+          Reserve Your Seat
+        </h1>
+        <p className="text-slate-600 text-xs sm:text-sm">
+          Shivaji Library • Plot no -FC4 (near gurudwara) Mehta Chowk, Shivaji Enclave
         </p>
       </div>
 
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-10">
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-rose-50 text-rose-800 border border-rose-200 text-sm flex items-center gap-2.5">
+          <div className="mb-6 p-4 rounded-xl bg-rose-50 text-rose-800 border border-rose-200 text-xs sm:text-sm flex items-center gap-2.5">
             <AlertCircle className="w-5 h-5 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Plan Selection Radio Cards */}
+          {/* Plan Selection Cards */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">
-              1. Choose Membership Plan *
+            <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-3">
+              1. Choose Official Study Plan *
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
               {Object.entries(PLAN_DATA).map(([key, plan]) => {
@@ -133,18 +140,20 @@ const Register = () => {
                     onClick={() => setFormData({ ...formData, plan: key })}
                     className={`p-4 rounded-2xl border-2 cursor-pointer transition flex flex-col justify-between ${
                       isSelected
-                        ? 'border-blue-600 bg-blue-50/50 shadow-sm'
+                        ? 'border-amber-500 bg-amber-50/60 shadow-sm'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
                     }`}
                   >
                     <div>
                       <div className="flex justify-between items-center mb-1">
-                        <span className="font-bold text-sm text-slate-900">{plan.name}</span>
-                        {isSelected && <CheckCircle className="w-4 h-4 text-blue-600" />}
+                        <span className="font-extrabold text-xs text-slate-900 uppercase">
+                          {plan.name}
+                        </span>
+                        {isSelected && <CheckCircle className="w-4 h-4 text-amber-600 shrink-0" />}
                       </div>
-                      <p className="text-xl font-extrabold text-blue-700">₹{plan.price}</p>
+                      <p className="text-2xl font-black text-slate-900 mt-1">₹{plan.price}</p>
                     </div>
-                    <p className="text-[11px] text-slate-500 mt-2">{plan.days} Days Full Access</p>
+                    <p className="text-[11px] text-slate-500 mt-2">{plan.subtitle}</p>
                   </div>
                 );
               })}
@@ -153,7 +162,7 @@ const Register = () => {
 
           {/* Personal Information */}
           <div className="pt-4 border-t border-slate-100 space-y-4">
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+            <label className="block text-xs font-black text-slate-800 uppercase tracking-wider">
               2. Member Details & Contact *
             </label>
 
@@ -166,8 +175,8 @@ const Register = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="e.g. Pooja Sharma"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  placeholder="e.g. Aman Sharma"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
 
@@ -179,8 +188,8 @@ const Register = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="pooja@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  placeholder="aman@example.com"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
 
@@ -192,8 +201,8 @@ const Register = () => {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+91 98111 22334"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  placeholder="+91 98765 43210"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
 
@@ -205,8 +214,8 @@ const Register = () => {
                   required
                   value={formData.address}
                   onChange={handleChange}
-                  placeholder="e.g. Block FC, Shivaji Enclave, Delhi"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  placeholder="e.g. Shivaji Enclave, Tagore Garden Ext."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
             </div>
@@ -214,7 +223,7 @@ const Register = () => {
 
           {/* Security Credentials */}
           <div className="pt-4 border-t border-slate-100 space-y-4">
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+            <label className="block text-xs font-black text-slate-800 uppercase tracking-wider">
               3. Set Portal Password *
             </label>
 
@@ -229,7 +238,7 @@ const Register = () => {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="At least 6 characters"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
 
@@ -243,19 +252,19 @@ const Register = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   placeholder="Re-enter password"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm"
                 />
               </div>
             </div>
           </div>
 
           {/* Notice Banner */}
-          <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 text-xs text-slate-600 flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+          <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-slate-700 flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
             <div className="space-y-1 leading-relaxed">
-              <p className="font-semibold text-blue-900">Registration Status Policy:</p>
+              <p className="font-bold text-amber-900">Seat Reservation Notice:</p>
               <p>
-                Your account will be registered with status <strong className="text-blue-700">Pending</strong>. You can instantly pay the membership fee of <strong>₹{selectedPlan.price}</strong> online from your dashboard or hand it over in cash/UPI at the library reception desk to activate full access.
+                Your account will be registered with status <strong className="text-amber-800">Pending</strong>. You can pay the membership fee of <strong>₹{selectedPlan.price}</strong> online or hand it over in cash/UPI directly at the library reception desk to activate your numbered desk pass.
               </p>
             </div>
           </div>
@@ -263,17 +272,17 @@ const Register = () => {
           <div className="pt-2 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-slate-500">
               Already a member?{' '}
-              <Link to="/member/login" className="text-blue-600 font-bold hover:underline">
-                Log into Member Portal
+              <Link to="/member/login" className="text-amber-600 font-bold hover:underline">
+                Sign in to Member Portal
               </Link>
             </p>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/30 transition flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-black text-xs uppercase tracking-wider shadow-md shadow-amber-500/30 transition flex items-center justify-center gap-2 disabled:opacity-50"
             >
-              <span>{loading ? 'Creating Account...' : `Register & Join (₹${selectedPlan.price})`}</span>
+              <span>{loading ? 'Creating Account...' : `Reserve Seat (₹${selectedPlan.price})`}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
