@@ -1,0 +1,14 @@
+{
+  "name": "shivaji-library-platform",
+  "version": "1.0.0",
+  "description": "Full-Stack Membership & Management Platform for Shivaji Library",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start:server": "npm --prefix server start",
+    "build:client": "npm --prefix client run build",
+    "seed": "npm --prefix server run seed",
+    "seed:admin": "npm --prefix server run seed:admin"
+  },
+  "keywords": ["library", "membership", "management", "express", "react", "mongodb"]
+}
