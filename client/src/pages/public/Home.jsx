@@ -80,9 +80,11 @@ const Home = () => {
 
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-black border border-amber-500/40 p-1.5 shadow-md flex items-center justify-center">
-                    <img src="/photos/logo.jpeg" alt="Shivaji Library Logo" className="w-full h-full object-contain" />
-                  </div>
+                  <img
+                    src="/photos/logo.png"
+                    alt="Shivaji Library Logo"
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-lg shrink-0"
+                  />
                   <div>
                     <span className="text-xs font-black text-amber-400 tracking-widest uppercase">
                       SHIVAJI LIBRARY
@@ -467,6 +469,11 @@ const Home = () => {
                 <span>Navigate via Google Maps</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
+
+              <div className="w-full pt-4 mt-2 border-t border-neutral-800/80 text-xs text-slate-400">
+                <span>Website Designed &amp; Developed by </span>
+                <strong className="text-amber-400 font-bold">Kartik Chhabra</strong>
+              </div>
 
               <a
                 href="tel:9319880227"

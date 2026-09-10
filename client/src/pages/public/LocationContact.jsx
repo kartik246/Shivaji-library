@@ -107,6 +107,19 @@ const LocationContact = () => {
                 <p className="text-xs text-slate-500">Open 7 days a week, including Sundays & holidays.</p>
               </div>
             </div>
+
+            {/* Developer Credit */}
+            <div className="pt-4 border-t border-slate-100 flex items-center gap-3 text-xs text-slate-500">
+              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+                <Code2 className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Webmaster &amp; Developer</p>
+                <p className="text-xs font-semibold text-slate-800">
+                  Website Designed &amp; Developed by <strong className="text-amber-600 font-bold">Kartik Chhabra</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

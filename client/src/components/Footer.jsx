@@ -10,9 +10,11 @@ const Footer = () => {
           {/* Col 1: About */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-black border border-amber-500/40 p-2 flex items-center justify-center">
-                <img src="/photos/logo.png" alt="Shivaji Library" className="w-full h-full object-contain" />
-              </div>
+              <img
+                src="/photos/logo.png"
+                alt="Shivaji Library"
+                className="w-12 h-12 object-contain drop-shadow-md shrink-0"
+              />
               <div>
                 <span className="font-extrabold text-lg text-white tracking-tight block">SHIVAJI LIBRARY</span>
                 <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">
@@ -126,7 +128,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Shivaji Library. All rights reserved.</p>
+          <div className="space-y-1 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} Shivaji Library. All rights reserved.</p>
+            <p className="text-slate-400 font-medium">
+              Website Designed &amp; Developed by <span className="text-amber-400 font-bold">Kartik Chhabra</span>
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <span>80-Seater Capacity</span>
             <span>Air Conditioned</span>

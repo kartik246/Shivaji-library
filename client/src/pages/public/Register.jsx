@@ -106,9 +106,11 @@ const Register = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
       <div className="text-center max-w-xl mx-auto space-y-3 mb-10">
-        <div className="w-14 h-14 rounded-2xl bg-black border border-amber-500/40 p-2.5 flex items-center justify-center mx-auto shadow-md">
-          <img src="/photos/logo.png" alt="Shivaji Library" className="w-full h-full object-contain" />
-        </div>
+        <img
+          src="/photos/logo.png"
+          alt="Shivaji Library"
+          className="w-16 h-16 object-contain drop-shadow-md mx-auto"
+        />
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight">
           Reserve Your Seat
         </h1>
